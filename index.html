@@ -1,192 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>&lt;suzin&gt;</title>
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <link rel="stylesheet" href="js/jquery-ui.min.css">
-    <script src="js/jquery-ui.min.css"></script>
-    <style>
-        *{margin:0;padding:0;}
-        body{font:14px/21px 'Noto Sans';}
-        li{list-style: none;}
-        a{text-decoration:none;color:#222;}
-        
-        section{width:100%;height:100vh;position:relative;overflow: hidden;}
-        
-        .intro,.about{background-color:#FBF4F2;}
-        .work{background-color:#2974BC;}
-        
-        .introTxt{
-            width:14%;height:20vh;
-            color:#2974bc;
-            position: absolute;top:40vh;left:43%;
-        }
-        h1{
-            width:60px;height:60px;
-            margin:auto;padding:21px 0;
-            color:#fbf4f2;
-            font:normal 36px/36px 'Noto Sans';
-        }
-        nav,aside{width:5%;height:100vh;position:absolute;top:0;}
-        nav{left:0;}
-        nav ul{
-            width:100vh;height:5wh;
-            transform-origin: top left;
-            transform:rotate(-90deg) translateX(-100vh);
-        }
-        nav ul li{text-align: center;height:5vw;}
-        nav ul li a{color:#FBF4F2;line-height:5vw;}
-        
-        aside{
-            right:0;
-        }
-        aside h3{
-            width:100vh;height:5vw;
-            transform-origin: top left;
-            transform: rotate(90deg) translateY(-5vw);
-            text-align: center;
-            font-weight: normal;
-        }
-        aside h3 a{color:#FBF4F2;line-height: 5vw;}
-        .content{
-            width:80vw;
-            position:absolute;top:20vh;left:10vw;
-        }
-        .ctBox{
-            width:32%;height:24vw;
-            margin-right:2%;
-            margin-bottom:5vh;
-            background-color:#FBF4F2;
-            float:left;
-            box-shadow:0 1px 50px 7px rgba(7,36,63,0.5);
-            text-align: center;
-            line-height: 24vw;
-            transition:all 0.5s;
-        }
-        .ctBox:nth-of-type(3n){
-            margin-right:0;
-        }
-        .ctBox:hover{
-            box-shadow: 0 0 0 0 rgba(7,36,63,0);
-        }
-        .ctBox:nth-of-type(1):hover{background-color:red;}
-        .ctBox:nth-of-type(2):hover{background-color:orange;}
-        .ctBox:nth-of-type(3):hover{background-color:yellow;}
-        .ctBox:nth-of-type(4):hover{background-color:green;}
-        .ctBox:nth-of-type(5):hover{background-color:navy;}
-        .ctBox:nth-of-type(6):hover{background-color:purple;}
-        
-        .workList{
-            width:100%;height:100%;
-            background-color:#FBF4F2;
-            position:absolute;top:0;left:0;
-        }
-        
-        .srf{font-family: 'Noto Serif',serif;text-align:left;}
-        .ss{font-family: 'Noto Sans',serif;text-align:center;}
-        
-        .introTxt p:nth-of-type(1){font-size:12px;line-height:24px;}
-        .introTxt p:nth-of-type(2){font-size:64px;line-height:50px;font-style:italic;}
-        .introTxt p:nth-of-type(3){font-size:14px;line-height:21px;margin-top:10px;}
-        .introTxt p:nth-of-type(4){font-size:12px;line-height:12px;}
-        
-        
-        .seeWork{
-            width:100px;height:70px;
-            position: absolute;bottom:0;
-            text-align: center;
-            cursor: pointer;
-        }
-        .seeWork span{
-            text-align: center;
-            font:12px/24px 'Noto Sans';
-            color:#555555;
-        }
-        .seeWork span:after{
-            content:'';
-            display: block;width:1px;height:46px;
-            background-color:#555555;
-            position:absolute;bottom:0;left:50%;
-        }
-    </style>
-    <script>
-        $(function(){
-            
-            $('.workList').hide();
-            
-            var cArray = ['red','orange','yellow','green','navy','purple'];
-            
-            $('.ctBox').click(function(){
-                var idx = $(this).index();
-                $('.ctBox').css({'box-shadow':'0 0 0 0 rgba(7,36,63,0)'})
-                $('.workList').show().css({'background-color':cArray[idx]});
-            });
-            
-            $('.workList').click(function(){
-                $('.ctBox').css({'box-shadow':'0 1px 50px 7px rgba(7,36,63,0.5)'});
-                $('.workList').hide();
-            });
-            
-            //seeWork 위치잡기
-            var ww = $(window).width();
-            var sww = $('.seeWork').width();
-            var swl = (ww-sww)/2;
-            $('.seeWork').css({'left':swl+'px'});
-            
-            //seeWork 누르면 이동
-            //sh:section의 높이
-            var sh = $('section').height();
-            $('.seeWork').click(function(){
-//                $('html body').animate({scrollTop:sh+'px'},1000);
-            });
-        });
-    </script>
-</head>
-<body>
-    <section class="intro">
-        <div class="introTxt">
-            <p class="srf">2018</p>
-            <p class="srf">PORT-<br>FOLIO</p>
-            <p class="ss">Baeksujin</p>
-            <p class="ss">a Web-Publisher</p>
-        </div>
-        <div class="seeWork">
-            <span>see my works</span>
-        </div>
-    </section>
-    <section class="work">
-        <h1>
-            S-U
-            ZIN
-        </h1>
-        <nav>
-            <ul>
-                <li><a href="#">WORK</a></li>
-            </ul>
-        </nav>
-        <div class="content">
-            <div class="ctList">
-                <div class="ctBox">RED</div>
-                <div class="ctBox">ORANGE</div>
-                <div class="ctBox">YELLOW</div>
-                <div class="ctBox">GREEN</div>
-                <div class="ctBox">NAVY</div>
-                <div class="ctBox">PURPLE</div>
-            </div>
-            <div class="workList">
-                <div class="work"></div>
-                <div class="work"></div>
-                <div class="work"></div>
-                <div class="work"></div>
-                <div class="work"></div>
-                <div class="work"></div>
-            </div>
-        </div>
-        <aside>
-            <h3><a href="mailto:suzin_b@naver.com">suzin_b@naver.com</a></h3>
-        </aside>
-    </section>
-    <section class="about"></section>
-</body>
-</html>
+## Welcome to GitHub Pages
+
+You can use the [editor on GitHub](https://github.com/suzinB/website/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+
+Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+
+### Markdown
+
+Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+
+```markdown
+Syntax highlighted code block
+
+# Header 1
+## Header 2
+### Header 3
+
+- Bulleted
+- List
+
+1. Numbered
+2. List
+
+**Bold** and _Italic_ and `Code` text
+
+[Link](url) and ![Image](src)
+```
+
+For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+
+### Jekyll Themes
+
+Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/suzinB/website/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+
+### Support or Contact
+
+Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
